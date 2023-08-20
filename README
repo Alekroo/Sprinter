@@ -1,0 +1,43 @@
+How to run:
+tested on linux mint
+
+gcc -m32 test-sprinter.c sprinter.s
+
+./a.out 
+
+results will be printed out.
+
+
+Funksjonen sprintf
+
+Standardfunksjonen sprintf i C fungerer som printf men resultatet havner i en tekstvariabel i stedet for å bli skrevet ut. For eksempel vil
+
+    	char str[200];
+    	int  x = 4;
+
+    	sprintf(str, "Her er %d %s.", x, "siffer");
+
+resultere i at str inneholder «Her er 4 siffer.» (samt en 0-byte som avslutning). Les mer i man sprintf om hvorledes sprintf fungerer; ikke glem at sprintf også returnerer en verdi.
+
+Oppgaven er å skrive funksjonen sprinter som er en forenklet utgave av sprintf. Nærmere bestemt kan vi anta følgende forenklinger:
+
+    De eneste %-spesifikasjonene som kan forekomme, er %c, %d, %s, %u, %x, %#x og %%.
+
+     
+    Det er ingen breddeangivelse (som %12d) og heller ingen modifikasjoner av %-spesifikasjonene (som +, -, 0 eller l (for «long»)).
+
+     
+    Signaturen er
+
+              int sprinter(unsigned char *res, unsigned char *format, ...);
+              
+
+    Funksjonen kan altså ha vilkårlig mange parametre, men alltid minst to.
+
+     
+    Hvis formatet inneholder ulovlige spesifikasjoner som %a eller %22d, kan du selv velge hva resultatet skal være, men funksjonen skal ikke gi kjørefeil.
+
+Oppgaven
+
+Oppgaven er å skrive funksjonen sprinter i x86-assemblerspråk. Den skal løses individuelt, så vi forventer at alle innleverte løsninger er forskjellige. Det er heller ikke lov å bruke en kompilator til å generere koden. Ytterligere regler finnes i https://www.uio.no/studier/eksamen/obligatoriske-aktiviteter/mn-ifi-obliger-retningslinjer.html
+Links to an external site. som forutsettes lest av alle som skal levere obligatoriske oppgaver i INF2270.
